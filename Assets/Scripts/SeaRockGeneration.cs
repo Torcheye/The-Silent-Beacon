@@ -8,7 +8,9 @@ public class SeaRockGeneration : MonoBehaviour
     [SerializeField] private Vector2 spawnRockForwardRange = new Vector2(2, 5);
     [SerializeField] private Vector2 spawnRockHorizontalRange = new Vector2(-1, 1);
     [SerializeField] private Transform boatTransform;
-    [SerializeField] private Vector3 _lastSpawnPosition;
+    [SerializeField] private Transform rockParent;
+    
+    private Vector3 _lastSpawnPosition;
 
     private float _spawnDistance;
     
@@ -36,7 +38,7 @@ public class SeaRockGeneration : MonoBehaviour
                              + boatTransform.forward * Random.Range(spawnRockForwardRange.x, spawnRockForwardRange.y) 
                              + boatTransform.right * Random.Range(spawnRockHorizontalRange.x, spawnRockHorizontalRange.y);
         
-        Instantiate(rockPrefabs[randomIndex], randomPosition, randomRotation, transform)
+        Instantiate(rockPrefabs[randomIndex], randomPosition, randomRotation, rockParent)
             .transform.localScale = Vector3.one * randomSize;
         
         _spawnDistance = Random.Range(spawnBoatDistanceRange.x, spawnBoatDistanceRange.y);
