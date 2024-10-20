@@ -75,6 +75,5 @@ public class BoatController : MonoBehaviour
         _camRotX = Mathf.Clamp(_camRotX, maxDownAngle, maxUpAngle);
 
         cameraTransform.localRotation = Quaternion.Euler(_camRotX, _camRotY, 0);
-        //cameraTransform.Rotate(Vector3.up * mouseX);
     }
 }

@@ -11,4 +11,10 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    
+    public void SetChapter(Chapter chapter)
+    {
+        CurrentChapter = chapter;
+        Debug.Log($"Chapter: {chapter}");
+    }
 }
