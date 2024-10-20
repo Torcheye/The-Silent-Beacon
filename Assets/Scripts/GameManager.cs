@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
+        // cutscene switching
         if (playableDirector.isActiveAndEnabled && playableDirector.state != PlayState.Playing)
         {
             switch (CurrentChapter)
@@ -64,7 +65,8 @@ public class GameManager : MonoBehaviour
             case Chapter.Start:
                 playableDirector.enabled = false;
                 boatController.ToggleCamera(false);
-                boatController.UnregisterInput();
+                InputManager.Instance.ToggleMovementInput(false);
+                InputManager.Instance.ToggleMouseMoveInput(false);
                 break;
             case Chapter.C1A1:
                 playableDirector.enabled = true;
@@ -73,7 +75,10 @@ public class GameManager : MonoBehaviour
                 break;
             case Chapter.C1A2:
                 playableDirector.enabled = false;
-                boatController.RegisterInput();
+                InputManager.Instance.ToggleMovementInput(true);
+                InputManager.Instance.ToggleMouseMoveInput(true);
+                
+                UIManager.Instance.ShowIntertitle("向着光开！");
                 break;
             case Chapter.C1A3:
                 break;

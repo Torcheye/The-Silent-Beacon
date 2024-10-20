@@ -28,7 +28,7 @@ public class FPSController : MonoBehaviour
     {
         _lastFootPos = transform.position;
         InputManager.Instance.OnWASD += UpdateMove;
-        InputManager.Instance.OnMouse += UpdateViewRot;
+        InputManager.Instance.OnMouseMove += UpdateViewRot;
     }
 
     private void Update()

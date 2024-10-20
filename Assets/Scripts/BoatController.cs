@@ -32,18 +32,12 @@ public class BoatController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
-    public void RegisterInput()
+    private void Start()
     {
         InputManager.Instance.OnWASD += Move;
-        InputManager.Instance.OnMouse += UpdateViewRot;
+        InputManager.Instance.OnMouseMove += UpdateViewRot;
     }
-    
-    public void UnregisterInput()
-    {
-        InputManager.Instance.OnWASD -= Move;
-        InputManager.Instance.OnMouse -= UpdateViewRot;
-    }
-    
+
     public void ToggleCamera(bool toggle)
     {
         boatmanCam.enabled = toggle;
