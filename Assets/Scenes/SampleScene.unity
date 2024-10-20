@@ -339,7 +339,7 @@ Transform:
   m_GameObject: {fileID: 223732784}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39, y: 0, z: -14.1}
+  m_LocalPosition: {x: 33.7, y: 0, z: -38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -598,6 +598,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eda87fe901a4f9c8bf94ce466e549d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playableDirector: {fileID: 429089658}
+  cutscenes:
+  - {fileID: 11400000, guid: 605971a258a38004d87736dbdbf0a216, type: 2}
+  boatController: {fileID: 223732786}
 --- !u!4 &328384827
 Transform:
   m_ObjectHideFlags: 0
@@ -674,7 +678,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 50
+  field of view: 38
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -700,8 +704,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.065664284, y: 0, z: 0, w: 0.9978418}
-  m_LocalPosition: {x: 39, y: 0.88, z: -14.774}
+  m_LocalRotation: {x: 0.12556483, y: 0.23625912, z: 0.030792486, w: -0.96305084}
+  m_LocalPosition: {x: 40.7, y: 0, z: -27.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -912,6 +916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 429089657}
+  - component: {fileID: 429089658}
   m_Layer: 0
   m_Name: SequenceManager
   m_TagString: Untagged
@@ -935,6 +940,27 @@ Transform:
   - {fileID: 604841889}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &429089658
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429089656}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 605971a258a38004d87736dbdbf0a216, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -1357901392252040627, guid: 605971a258a38004d87736dbdbf0a216, type: 2}
+    value: {fileID: 672741358}
+  - key: {fileID: 4881614545609853201, guid: 605971a258a38004d87736dbdbf0a216, type: 2}
+    value: {fileID: 223732789}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &437637879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,7 +1166,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 604841889}
-  - component: {fileID: 604841890}
   m_Layer: 0
   m_Name: Cutscene1.1
   m_TagString: Untagged
@@ -1164,27 +1189,6 @@ Transform:
   - {fileID: 672741359}
   m_Father: {fileID: 429089657}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!320 &604841890
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604841888}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 605971a258a38004d87736dbdbf0a216, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: -1357901392252040627, guid: 605971a258a38004d87736dbdbf0a216, type: 2}
-    value: {fileID: 672741358}
-  - key: {fileID: 4881614545609853201, guid: 605971a258a38004d87736dbdbf0a216, type: 2}
-    value: {fileID: 223732789}
-  m_ExposedReferences:
-    m_References: []
 --- !u!1 &672741358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &672741359
 Transform:
   m_ObjectHideFlags: 0
