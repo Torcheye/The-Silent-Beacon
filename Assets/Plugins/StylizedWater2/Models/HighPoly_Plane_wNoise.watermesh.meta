@@ -11,7 +11,8 @@ ScriptedImporter:
   waterMesh:
     shape: 0
     scale: 100
-    vertexDistance: 1
+    vertexDistance: 0.7
     UVTiling: 1
-    noise: 0.513
-  mesh: {fileID: -8670151273213183110, guid: b54af1ae652e1924b8d1be61ad384093, type: 3}
+    noise: 0.35
+    boundsPadding: 4
+    mesh: {fileID: -8670151273213183110, guid: b54af1ae652e1924b8d1be61ad384093, type: 3}
