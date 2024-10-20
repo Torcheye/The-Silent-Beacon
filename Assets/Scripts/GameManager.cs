@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     
     public Chapter CurrentChapter { get; private set; }
-
+    
     [SerializeField] private PlayableDirector playableDirector;
     [SerializeField] private PlayableAsset[] cutscenes;
     [SerializeField] private BoatController boatController;
@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
         SetChapter(Chapter.Start);
     }
 
-    [ContextMenu("start")]
     public void StartGame()
     {
+        UIManager.Instance.ToggleStartScreen(false);
         SetChapter(Chapter.C1A1);
     }
 
