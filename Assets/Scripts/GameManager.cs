@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayableDirector playableDirector;
     [SerializeField] private PlayableAsset[] cutscenes;
     [SerializeField] private BoatController boatController;
+    [SerializeField] private FPSController keeperController;
+    [SerializeField] private CharacterSwitching characterSwitching;
     
     private void Awake()
     {
@@ -55,6 +57,46 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void CompleteStartSwitching()
+    {
+        switch (CurrentChapter)
+        {
+            case Chapter.C1A2:
+                SetChapter(Chapter.C1A3);
+                break;
+            case Chapter.C1A4:
+                SetChapter(Chapter.C2A1);
+                break;
+            case Chapter.C2A3:
+                SetChapter(Chapter.C3A1);
+                break;
+            default:
+                Debug.LogError("Wrong chapter to complete Start Switching!");
+                return;
+        }
+    }
+    
+    public void CompleteEndSwitching()
+    {
+        switch (CurrentChapter)
+        {
+            case Chapter.C1A3:
+                InputManager.Instance.ToggleMovementInput(true);
+                InputManager.Instance.ToggleMouseMoveInput(true);
+                UIManager.Instance.ShowIntertitle("又该下楼搬油了...");
+                break;
+            case Chapter.C2A1:
+                
+                break;
+            case Chapter.C3A1:
+                
+                break;
+            default:
+                Debug.LogError("Wrong chapter to complete End Switching!");
+                return;
+        }
+    }
+
     public void SetChapter(Chapter chapter)
     {
         CurrentChapter = chapter;
@@ -64,24 +106,37 @@ public class GameManager : MonoBehaviour
         {
             case Chapter.Start:
                 playableDirector.enabled = false;
+                
                 boatController.ToggleCamera(false);
+                
                 InputManager.Instance.ToggleMovementInput(false);
                 InputManager.Instance.ToggleMouseMoveInput(false);
+                
+                keeperController.gameObject.SetActive(false);
                 break;
             case Chapter.C1A1:
-                playableDirector.enabled = true;
                 boatController.ToggleCamera(true);
+                
+                playableDirector.enabled = true;
                 playableDirector.Play(cutscenes[0]);
                 break;
             case Chapter.C1A2:
                 playableDirector.enabled = false;
+                
                 InputManager.Instance.ToggleMovementInput(true);
                 InputManager.Instance.ToggleMouseMoveInput(true);
+                
                 boatController.ToggleSeaRocks(true);
+                characterSwitching.EnableAndStartSwitching(boatController.CameraTransform);
                 
                 UIManager.Instance.ShowIntertitle("向着光开！");
                 break;
             case Chapter.C1A3:
+                boatController.gameObject.SetActive(false);
+                keeperController.gameObject.SetActive(true);
+                
+                InputManager.Instance.ToggleMovementInput(false);
+                InputManager.Instance.ToggleMouseMoveInput(false);
                 break;
             case Chapter.C1A4:
                 break;

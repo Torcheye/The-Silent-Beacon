@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     public event Action<Vector2> OnWASD;
     public event Action<Vector2> OnMouseMove;
     public event Action OnMouseClick;
+    public bool MousePressed { get; private set; }
     
     private bool _enableMovementInput = true;
     private bool _enableMouseMoveInput = true;
@@ -26,6 +27,7 @@ public class InputManager : MonoBehaviour
         HandleWASDInput();
         HandleMouseMoveInput();
         HandleMouseClickInput();
+        HandleMousePressed();
     }
     
     public void ToggleMovementInput(bool toggle)
@@ -75,5 +77,12 @@ public class InputManager : MonoBehaviour
         {
             OnMouseClick?.Invoke();
         }
+    }
+    
+    private void HandleMousePressed()
+    {
+        if (!_enableMouseClickInput) return;
+        
+        MousePressed = Input.GetMouseButton(0);
     }
 }

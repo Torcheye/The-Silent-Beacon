@@ -28,6 +28,8 @@ public class BoatController : MonoBehaviour
     private float _camRotY;
     private Rigidbody _rb;
     
+    public Transform CameraTransform => cameraTransform;
+    
     public void ToggleSeaRocks(bool toggle)
     {
         seaRockGeneration.enabled = toggle;
