@@ -21,11 +21,17 @@ public class BoatController : MonoBehaviour
     [SerializeField] private bool fovChange = false;
     [SerializeField] private float maxUpAngle = 80;
     [SerializeField] private float maxDownAngle = -80;
+    [Header("Other")]
+    [SerializeField] private SeaRockGeneration seaRockGeneration;
     
     private float _camRotX;
     private float _camRotY;
-
     private Rigidbody _rb;
+    
+    public void ToggleSeaRocks(bool toggle)
+    {
+        seaRockGeneration.enabled = toggle;
+    }
 
     private void Awake()
     {

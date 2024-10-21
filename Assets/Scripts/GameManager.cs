@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
                 playableDirector.enabled = false;
                 InputManager.Instance.ToggleMovementInput(true);
                 InputManager.Instance.ToggleMouseMoveInput(true);
+                boatController.ToggleSeaRocks(true);
                 
                 UIManager.Instance.ShowIntertitle("向着光开！");
                 break;

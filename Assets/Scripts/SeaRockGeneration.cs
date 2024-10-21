@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SeaRockGeneration : MonoBehaviour
 {
@@ -13,13 +15,13 @@ public class SeaRockGeneration : MonoBehaviour
     private Vector3 _lastSpawnPosition;
 
     private float _spawnDistance;
-    
-    private void Start()
+
+    private void OnEnable()
     {
         _lastSpawnPosition = boatTransform.position;
         _spawnDistance = Random.Range(spawnBoatDistanceRange.x, spawnBoatDistanceRange.y);
     }
-    
+
     private void Update()
     {
         if (Vector3.SqrMagnitude(boatTransform.position - _lastSpawnPosition) > _spawnDistance * _spawnDistance)

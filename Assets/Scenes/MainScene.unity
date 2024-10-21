@@ -135,13 +135,13 @@ GameObject:
   - component: {fileID: 81217731}
   - component: {fileID: 81217730}
   - component: {fileID: 81217729}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &81217729
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -223,8 +223,8 @@ Transform:
   m_GameObject: {fileID: 81217728}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.51, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalScale: {x: 200, y: 200, z: 200}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 437637880}
@@ -424,6 +424,7 @@ MonoBehaviour:
   fovChange: 0
   maxUpAngle: 80
   maxDownAngle: -80
+  seaRockGeneration: {fileID: 1024491759}
 --- !u!54 &223732787
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -565,8 +566,8 @@ Transform:
   m_GameObject: {fileID: 229933996}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.842839, y: -2.7047472, z: 0.8032906}
-  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_LocalPosition: {x: 0.842839, y: 0, z: 0.8032906}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 437637880}
@@ -873,7 +874,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1238,12 +1239,13 @@ Transform:
   m_GameObject: {fileID: 437637879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.842839, y: 2.7047472, z: -0.8032906}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 81217732}
   - {fileID: 229934000}
+  - {fileID: 81217732}
+  - {fileID: 1979337658}
   - {fileID: 410087041}
   - {fileID: 1819528876}
   m_Father: {fileID: 0}
@@ -2228,7 +2230,7 @@ MonoBehaviour:
   m_WaitXFrames: 8
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 17
   m_UseOcclusionCulling: 1
   m_DepthMapResolution: 256
 --- !u!1 &1024491757
@@ -2247,7 +2249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1024491758
 Transform:
   m_ObjectHideFlags: 0
@@ -2261,7 +2263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1979337658}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1024491759
 MonoBehaviour:
@@ -2270,7 +2272,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024491757}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0bfe97e382a4edc8cd0e15daf35b6eb, type: 3}
   m_Name: 
@@ -2282,7 +2284,7 @@ MonoBehaviour:
   spawnRockForwardRange: {x: 6, y: 9}
   spawnRockHorizontalRange: {x: -1, y: 1}
   boatTransform: {fileID: 223732785}
-  rockParent: {fileID: 229934000}
+  rockParent: {fileID: 1979337658}
 --- !u!1 &1370286482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,7 +3082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3799,7 +3801,7 @@ Transform:
   m_GameObject: {fileID: 1819528875}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4346,6 +4348,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967046074}
   m_CullTransparentMesh: 1
+--- !u!1 &1979337657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1979337658}
+  m_Layer: 0
+  m_Name: SeaRocks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1979337658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979337657}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1024491758}
+  m_Father: {fileID: 437637880}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2028063691
 GameObject:
   m_ObjectHideFlags: 0
@@ -4490,7 +4524,6 @@ SceneRoots:
   - {fileID: 223732785}
   - {fileID: 1506671319}
   - {fileID: 437637880}
-  - {fileID: 1024491758}
   - {fileID: 203133014}
   - {fileID: 328384827}
   - {fileID: 429089657}
